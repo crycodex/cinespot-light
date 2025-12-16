@@ -49,7 +49,7 @@ const HeroSection = () => {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
               <span className="text-foreground">Cine</span>
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                {" "}App
+                mapedia
               </span>
             </h1>
 
@@ -83,7 +83,7 @@ const HeroSection = () => {
               <div className="relative animate-float border-2 border-border rounded-3xl">
                 <img
                   src={appPreview}
-                  alt="Cine App Preview"
+                  alt="CinemaPedia Preview"
                   className="w-64 md:w-80 rounded-3xl shadow-2xl border border-border/50"
                 />
               </div>

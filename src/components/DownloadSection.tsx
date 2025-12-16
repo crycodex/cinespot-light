@@ -8,7 +8,7 @@ const DownloadSection = () => {
         <div className="max-w-4xl mx-auto text-center">
           {/* Content */}
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Descarga Cine App
+            Descarga CinemaPedia
           </h2>
           <p className="text-muted-foreground text-lg mb-10 max-w-2xl mx-auto">
             Disponible para Android e iOS. Empieza a descubrir películas hoy mismo.
@@ -42,7 +42,7 @@ const DownloadSection = () => {
           {/* Stats */}
           <div className="mt-16 grid grid-cols-3 gap-8 max-w-xl mx-auto">
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-primary">10K+</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary">100+</div>
               <div className="text-sm text-muted-foreground mt-1">Descargas</div>
             </div>
             <div>

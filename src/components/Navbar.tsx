@@ -2,7 +2,8 @@ import { Film, Sun, Moon, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/hooks/useTheme";
 import { useState, useEffect } from "react";
-
+import { GithubIcon } from "lucide-react";
+import icon from "../assets/icon/icon.png";
 const Navbar = () => {
   const { isDark, toggleTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -35,9 +36,9 @@ const Navbar = () => {
         <div className={`flex items-center justify-between transition-all duration-300 ${isScrolled ? "h-14" : "h-16"}`}>
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <Film className={`text-primary transition-all duration-300 ${isScrolled ? "w-5 h-5" : "w-6 h-6"}`} />
+              <img src={icon} alt="CinemaPedia" className={`w-8 h-8 rounded`} />
             <span className={`font-bold transition-all duration-300 ${isScrolled ? "text-base" : "text-lg"}`}>
-              Cine App
+              CinemaPedia
             </span>
           </div>
 
@@ -65,6 +66,15 @@ const Navbar = () => {
 
           {/* Actions */}
           <div className="flex items-center gap-2">
+            {/* Github */}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => window.open("https://github.com/crycodex/cine_app", "_blank")}
+              className="rounded-full"
+            >
+              <GithubIcon className="w-4 h-4" />
+            </Button>
             {/* Theme Toggle */}
             <Button
               variant="ghost"
