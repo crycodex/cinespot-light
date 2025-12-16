@@ -1,13 +1,21 @@
 import { Film, Sun, Moon, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useScrollDirection } from "@/hooks/useScrollDirection";
 import { useTheme } from "@/hooks/useTheme";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
-  const { scrollDirection, scrollY } = useScrollDirection();
   const { isDark, toggleTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -15,16 +23,9 @@ const Navbar = () => {
     setMobileMenuOpen(false);
   };
 
-  const isScrolled = scrollY > 50;
-  const isHidden = scrollDirection === "down" && scrollY > 200;
-
   return (
     <header
       className={`fixed z-50 transition-all duration-300 ${
-        isHidden 
-          ? "-translate-y-full" 
-          : "translate-y-0"
-      } ${
         isScrolled
           ? "top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-4xl rounded-2xl bg-card/90 backdrop-blur-lg border border-border shadow-lg"
           : "top-0 left-0 right-0 w-full bg-background/80 backdrop-blur-md border-b border-border/50"
