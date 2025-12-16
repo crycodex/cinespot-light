@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Play, Download } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
-import appPreview from "@/assets/app-preview.png";
+import appPreview from "../assets/hero.png";
 import { GridScan } from "@/components/GridScan";
 
 const HeroSection = () => {
@@ -35,14 +34,14 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center justify-center">
           {/* Text Content */}
-          <div className="text-center lg:text-left space-y-8">
+          <div className="text-center lg:text-left space-y-8 md:ml-16 justify-center">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-sm">
               <Play className="w-4 h-4 text-primary" />
               <span className="text-sm text-primary font-medium">
-                Nueva versión disponible
+                Versión.1.0.0 disponible
               </span>
             </div>
 
@@ -61,7 +60,7 @@ const HeroSection = () => {
               séptimo arte.
             </p>
 
-            {/* CTA Buttons */}
+            {/* CTA Botones - "Ir a Descarga" */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button
                 size="lg"
@@ -69,28 +68,19 @@ const HeroSection = () => {
                 className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 px-8 shadow-[var(--shadow-glow)]"
               >
                 <Download className="w-5 h-5" />
-                Descargar para Android
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={scrollToDownload}
-                className="border-border hover:bg-muted gap-2 px-8"
-              >
-                <Download className="w-5 h-5" />
-                Descargar para iOS
+                Descargar Gratis
               </Button>
             </div>
           </div>
 
           {/* App Preview */}
-          <div className="relative flex justify-center lg:justify-end">
+          <div className="relative flex justify-center">
             <div className="relative">
               {/* Glow effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary/30 blur-3xl scale-110 rounded-full" />
               
               {/* Phone mockup */}
-              <div className="relative animate-float">
+              <div className="relative animate-float border-2 border-border rounded-3xl">
                 <img
                   src={appPreview}
                   alt="Cine App Preview"

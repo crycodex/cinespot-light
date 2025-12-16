@@ -1,10 +1,12 @@
+import { Smartphone, Code, RefreshCw, Globe, Database, Navigation } from "lucide-react";
+
 const technologies = [
-  { name: "Flutter", description: "Framework UI multiplataforma" },
-  { name: "Dart", description: "Lenguaje de programación" },
-  { name: "Riverpod", description: "Gestión de estado reactiva" },
-  { name: "Dio", description: "Cliente HTTP" },
-  { name: "Drift", description: "Base de datos SQLite" },
-  { name: "GoRouter", description: "Navegación declarativa" },
+  { name: "Flutter", description: "Framework UI multiplataforma", icon: Smartphone },
+  { name: "Dart", description: "Lenguaje de programación", icon: Code },
+  { name: "Riverpod", description: "Gestión de estado reactiva", icon: RefreshCw },
+  { name: "Dio", description: "Cliente HTTP", icon: Globe },
+  { name: "Drift", description: "Base de datos SQLite", icon: Database },
+  { name: "GoRouter", description: "Navegación declarativa", icon: Navigation },
 ];
 
 const TechStackSection = () => {
@@ -22,17 +24,25 @@ const TechStackSection = () => {
 
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {technologies.map((tech, index) => (
-              <div
-                key={index}
-                className="group p-5 rounded-xl bg-card/50 border border-border hover:border-primary/50 transition-all duration-300 text-center"
-              >
-                <h3 className="font-semibold text-lg mb-1 group-hover:text-primary transition-colors">
-                  {tech.name}
-                </h3>
-                <p className="text-sm text-muted-foreground">{tech.description}</p>
-              </div>
-            ))}
+            {technologies.map((tech, index) => {
+              const Icon = tech.icon;
+              return (
+                <div
+                  key={index}
+                  className="group p-5 rounded-xl bg-card/50 border border-border hover:border-primary/50 transition-all duration-300 text-center"
+                >
+                  <div className="flex justify-center mb-3">
+                    <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                      <Icon className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
+                    </div>
+                  </div>
+                  <h3 className="font-semibold text-lg mb-1 group-hover:text-primary transition-colors">
+                    {tech.name}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">{tech.description}</p>
+                </div>
+              );
+            })}
           </div>
 
           {/* Architecture badges */}
