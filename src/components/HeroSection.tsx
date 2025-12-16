@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Play, Download } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import appPreview from "@/assets/app-preview.png";
+import { GridScan } from "@/components/GridScan";
 
 const HeroSection = () => {
   const scrollToDownload = () => {
@@ -10,14 +11,27 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      />
+
+
+      {/* Grid Scan Animation */}
+      <div className="absolute inset-0 z-[1] pointer-events-none">
+        <GridScan
+          sensitivity={0.55}
+          lineThickness={1}
+          linesColor="#392e4e"
+          gridScale={0.1}
+          scanColor="#FF9FFC"
+          scanOpacity={0.4}
+          enablePost
+          bloomIntensity={0.6}
+          chromaticAberration={0.002}
+          noiseIntensity={0.01}
+          className="pointer-events-auto"
+        />
+      </div>
 
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background z-[2]" />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4">
