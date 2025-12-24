@@ -1,0 +1,4 @@
+# Netlify redirects file
+# This ensures that all routes work when accessed directly from external URLs
+/*    /index.html   200
+
